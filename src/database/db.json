@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "name": "anokh",
+      "username": "anokh.y",
+      "email": "anokh@shrisaitechnology.com",
+      "phone": "15825552555",
+      "id": 2
+    },
+    {
+      "name": "ronaldo",
+      "username": "cronaldo",
+      "email": "cristiano@gmail.com",
+      "phone": "0976576776",
+      "id": 3
+    },
+    {
+      "name": "leo",
+      "username": "leomessi",
+      "email": "leomessi@gmail.com",
+      "phone": "15825552555",
+      "id": 4
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FormControl,FormGroup, InputLabel, Input, Typography, Button, styled} from '@mui/material'
-import { addUser } from '../service/api';
-import {useNavigate} from 'react-router-dom';
+import { getUser, editUser } from '../service/api';
+import {useNavigate, useParams} from 'react-router-dom';
 
 
 // const container = styled(FormGroup)`             
@@ -17,10 +17,20 @@ const initialValues = {
     phone: ''
 }
 
-export const AddUser = () => {
+export const EditUser = () => {
 
     const [user , setUser] = useState(initialValues);
     const navigate = useNavigate();
+    const {id} = useParams();
+
+    useEffect(() => {
+        getUserData();
+    },[]);
+
+    const getUserData = async () => {
+        let response = await getUser(id);
+        setUser(response.data);
+    }
 
     const onValueChange = (e) =>{
         // console.log(e.target.name, e.target.value);
@@ -29,30 +39,30 @@ export const AddUser = () => {
     }
 
     const addUserDetails = async() => {
-        await addUser(user);
-        navigate('/all');
+         await editUser(user,id);
+         navigate('/all');
     }
   return (
     <FormGroup>
-        <Typography variant='h4'>Add User</Typography>
+        <Typography variant='h4'>Edit User</Typography>
         <FormControl>
             <InputLabel>Name :</InputLabel>
-            <Input onChange={(e) => onValueChange(e)} name='name'/>
+            <Input onChange={(e) => onValueChange(e)} name='name' value={user.name}/>
         </FormControl>
         <FormControl>
             <InputLabel>Username :</InputLabel>
-            <Input onChange={(e) => onValueChange(e)} name="username"/>
+            <Input onChange={(e) => onValueChange(e)} name="username" value={user.username}/>
         </FormControl>
         <FormControl>
             <InputLabel>Email :</InputLabel>
-            <Input onChange={(e) => onValueChange(e)} name="email"/>
+            <Input onChange={(e) => onValueChange(e)} name="email" value={user.email}/>
         </FormControl>
         <FormControl>
             <InputLabel>Phone :</InputLabel>
-            <Input onChange={(e) => onValueChange(e)} name="phone"/>
+            <Input onChange={(e) => onValueChange(e)} name="phone" value={user.phone}/>
         </FormControl>
         <FormControl>
-            <Button onClick={() => addUserDetails()} variant='contained'>Add User</Button>
+            <Button onClick={() => addUserDetails()} variant='contained'>Edit User</Button>
         </FormControl>
     </FormGroup>
   )
