@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "name": "anokh",
-      "username": "anokh.y",
-      "email": "anokh@shrisaitechnology.com",
-      "phone": "15825552555",
-      "id": 2
-    },
-    {
       "name": "ronaldo",
       "username": "cronaldo",
       "email": "cristiano@gmail.com",
@@ -15,11 +8,18 @@
       "id": 3
     },
     {
-      "name": "leo",
-      "username": "leomessi",
-      "email": "leomessi@gmail.com",
+      "name": "asd",
+      "username": "sdfsd",
+      "email": "anokh@gmail.com",
       "phone": "15825552555",
-      "id": 4
+      "id": 5
+    },
+    {
+      "name": "zaltan",
+      "username": "zaltan",
+      "email": "zaltan@gmail.com",
+      "phone": "8978098789",
+      "id": 6
     }
   ]
 }

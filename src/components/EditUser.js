@@ -4,12 +4,6 @@ import { getUser, editUser } from '../service/api';
 import {useNavigate, useParams} from 'react-router-dom';
 
 
-// const container = styled(FormGroup)`             
-//   width: 100%;
-//   margin: 5% auto 0 auto;
-//   & > div
-// `
-
 const initialValues = {
     name: '',
     username: '',
@@ -22,13 +16,14 @@ export const EditUser = () => {
     const [user , setUser] = useState(initialValues);
     const navigate = useNavigate();
     const {id} = useParams();
+    
 
     useEffect(() => {
         getUserData();
     },[]);
 
     const getUserData = async () => {
-        let response = await getUser(id);
+        const response = await getUser(id);
         setUser(response.data);
     }
 
@@ -39,7 +34,7 @@ export const EditUser = () => {
     }
 
     const addUserDetails = async() => {
-         await editUser(user,id);
+         await editUser(id, user);
          navigate('/all');
     }
   return (
